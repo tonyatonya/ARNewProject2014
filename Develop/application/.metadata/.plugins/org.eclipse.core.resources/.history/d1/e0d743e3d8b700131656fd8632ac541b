@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    
+    android:background="@color/background"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pageTitle_Login" />
+    <Button
+        android:id="@+id/SignIn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize ="25sp"
+        android:text="@string/btnName_signin"
+        />
+    <Button
+        android:id="@+id/SignUp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize ="25sp"
+        android:text="@string/btnName_signUp"
+        />
+</LinearLayout>
