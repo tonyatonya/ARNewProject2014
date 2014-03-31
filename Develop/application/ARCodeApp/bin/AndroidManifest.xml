@@ -27,6 +27,26 @@
             android:label="@string/pageTitle_Welcome"
             >
         </activity>
+        <activity
+            android:name=".CaptureActivity"
+            android:label="@string/pageTitle_Capture"
+            >
+        </activity>
+        <activity
+            android:name=".EditprofileActivity"
+            android:label="@string/pageTitle_EditProfile"
+            >
+        </activity>
+        <activity
+            android:name=".MylistActivity"
+            android:label="@string/pageTitle_BizInfo"
+            >
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/pageTitle_Register"
+            >
+        </activity>
     </application>
 
 </manifest>

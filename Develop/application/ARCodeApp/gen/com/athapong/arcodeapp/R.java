@@ -27,19 +27,26 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
+        public static final int Capture=0x7f090006;
         public static final int SignIn=0x7f090003;
         public static final int SignUp=0x7f090004;
-        public static final int action_settings=0x7f090005;
+        public static final int action_settings=0x7f09000b;
+        public static final int bizList=0x7f090005;
+        public static final int capture=0x7f090008;
         public static final int editText1=0x7f090001;
         public static final int editText2=0x7f090002;
+        public static final int editprofile=0x7f090007;
+        public static final int logout=0x7f09000a;
+        public static final int mylist=0x7f090009;
         public static final int textView1=0x7f090000;
     }
     public static final class layout {
         public static final int activity_capture=0x7f030000;
         public static final int activity_editprofile=0x7f030001;
         public static final int activity_main=0x7f030002;
-        public static final int activity_register=0x7f030003;
-        public static final int activity_welcome=0x7f030004;
+        public static final int activity_mylist=0x7f030003;
+        public static final int activity_register=0x7f030004;
+        public static final int activity_welcome=0x7f030005;
     }
     public static final class menu {
         public static final int main=0x7f080000;
@@ -53,6 +60,7 @@ public final class R {
         public static final int btnName_MyBizList=0x7f06000f;
         public static final int btnName_Register=0x7f060013;
         public static final int btnName_Save=0x7f060014;
+        public static final int btnName_TakePhoto=0x7f060016;
         public static final int btnName_editProfile=0x7f06000d;
         public static final int btnName_signUp=0x7f060012;
         public static final int btnName_signin=0x7f060011;

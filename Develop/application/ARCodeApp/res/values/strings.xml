@@ -22,4 +22,5 @@
 	<string name="btnName_Register">Register</string>
 	<string name="btnName_Save">Save</string>
 	<string name="btnName_Cancle">Cancle</string>
+	<string name="btnName_TakePhoto">Capture</string>
 </resources>
