@@ -4,7 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
-import android.view.View.OnClickListener;
+//import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class MylistActivity extends Activity {
 	@Override
@@ -12,17 +13,18 @@ public class MylistActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mylist);
 		
-		//Create Button Listener
-		View btnGoCapture = findViewById(R.id.Capture);
-		btnGoCapture.setOnClickListener((OnClickListener) this);
-	}
-	public void onClick(View V){
-		switch (V.getId()){
-		case R.id.Capture:
-			Intent a = new Intent(this, CaptureActivity.class);
-			startActivity(a);
-			break;
-		}
+		//Button goCapture
+				Button btnGoCapture = (Button) findViewById(R.id.capture);
+				btnGoCapture.setOnClickListener(new View.OnClickListener() {
+							
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						Intent intent = new Intent(MylistActivity.this,CameraApplication.class);
+						startActivity(intent);
+					}
+				});
+		
 	}
 
 }

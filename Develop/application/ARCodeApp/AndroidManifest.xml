@@ -32,7 +32,7 @@
     
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
+        android:targetSdkVersion="16"/>
     
     <application
         android:allowBackup="true"
@@ -50,8 +50,7 @@
         </activity>
         <activity
             android:name=".WelcomeActivity"
-            android:label="@string/pageTitle_Welcome"
-            >
+            android:label="@string/pageTitle_Welcome">
         </activity>
         <activity
             android:name=".CaptureActivity"
@@ -73,6 +72,8 @@
             android:label="@string/pageTitle_Register"
             >
         </activity>
+        <activity
+            android:name=".CameraApplication" android:permission="android.permission.CAMERA"></activity>
     </application>
 
 </manifest>

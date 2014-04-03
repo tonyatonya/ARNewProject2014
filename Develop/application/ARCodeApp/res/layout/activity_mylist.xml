@@ -27,7 +27,7 @@
 	        >
 	    </ListView>
 	    <Button
-	        android:id="@+id/Capture"
+	        android:id="@+id/capture"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:text="@string/btnName_Capture"

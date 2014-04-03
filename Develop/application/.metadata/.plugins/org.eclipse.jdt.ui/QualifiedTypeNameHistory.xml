@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.athapong.arcodeapp.R.layout"/>
 <fullyQualifiedTypeName name="android.os.Bundle"/>
 <fullyQualifiedTypeName name="android.content.Intent"/>
-<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.view.KeyEvent"/>
 <fullyQualifiedTypeName name="android.widget.EditText"/>
-<fullyQualifiedTypeName name="com.athapong.arcodeapp.R.id"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="android.graphics.BitmapFactory"/>
+<fullyQualifiedTypeName name="android.graphics.PixelFormat"/>
+<fullyQualifiedTypeName name="android.hardware.Camera"/>
+<fullyQualifiedTypeName name="android.hardware.Camera.PictureCallback"/>
+<fullyQualifiedTypeName name="android.hardware.Camera.ShutterCallback"/>
+<fullyQualifiedTypeName name="android.provider.MediaStore"/>
+<fullyQualifiedTypeName name="android.view.SurfaceView"/>
+<fullyQualifiedTypeName name="android.widget.Button"/>
+<fullyQualifiedTypeName name="android.view.SurfaceHolder.Callback"/>
+<fullyQualifiedTypeName name="android.view.Window"/>
+<fullyQualifiedTypeName name="android.view.WindowManager"/>
+<fullyQualifiedTypeName name="android.view.ViewGroup.LayoutParams"/>
+<fullyQualifiedTypeName name="com.athapong.arcodeapp.R.layout"/>
+<fullyQualifiedTypeName name="com.athapong.arcodeapp.R.id"/>
+<fullyQualifiedTypeName name="android.provider.MediaStore.Images"/>
+<fullyQualifiedTypeName name="android.provider.MediaStore.Images.Media"/>
+<fullyQualifiedTypeName name="android.hardware.Camera.Parameters"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 </qualifiedTypeNameHistroy>
