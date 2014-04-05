@@ -32,7 +32,7 @@ public class WelcomeActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(WelcomeActivity.this,CameraApplication.class);
+				Intent intent = new Intent(WelcomeActivity.this,CaptureActivity.class);
 				startActivity(intent);
 			}
 		});
