@@ -29,6 +29,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+   
+    <uses-feature android:name="android.hardware.camera"
+                  android:required="true" />
     
    	<uses-sdk
         android:minSdkVersion="8"
@@ -65,9 +68,7 @@
         </activity>
         <activity
             android:name=".CaptureActivity"
-            android:label="@string/pageTitle_Capture"
-            android:screenOrientation="portrait"
-            >
+            android:label="@string/pageTitle_Capture" >
         </activity>
         <activity
             android:name=".EditprofileActivity"
