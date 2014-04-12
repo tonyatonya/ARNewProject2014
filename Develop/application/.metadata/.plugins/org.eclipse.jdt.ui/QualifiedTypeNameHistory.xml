@@ -30,4 +30,6 @@
 <fullyQualifiedTypeName name="com.athapong.arcodeapp.R.id"/>
 <fullyQualifiedTypeName name="android.provider.MediaStore.Images.Media"/>
 <fullyQualifiedTypeName name="android.hardware.Camera.Parameters"/>
+<fullyQualifiedTypeName name="android.content.pm.ActivityInfo"/>
+<fullyQualifiedTypeName name="com.athapong.arcodeapp.CaptureActivity"/>
 </qualifiedTypeNameHistroy>

@@ -30,7 +30,6 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     
-    
    	<uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="16"/>
@@ -67,6 +66,7 @@
         <activity
             android:name=".CaptureActivity"
             android:label="@string/pageTitle_Capture"
+            android:screenOrientation="portrait"
             >
         </activity>
         <activity
