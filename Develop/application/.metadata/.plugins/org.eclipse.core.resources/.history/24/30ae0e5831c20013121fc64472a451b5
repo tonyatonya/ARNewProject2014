@@ -22,6 +22,8 @@ public class CaptureActivity extends Activity {
      private static final int CAMERA_REQUEST = 1888;  
      ImageView imageView;
      String currentPath;
+    // static final String CAMERA_PIC_DIR = "/DCIM/Camera/";
+     
      
      public void onCreate(Bundle savedInstanceState) {  
   
@@ -30,6 +32,7 @@ public class CaptureActivity extends Activity {
          imageView = (ImageView) this.findViewById(R.id.imageView1);  
          Button photoButton = (Button) this.findViewById(R.id.button1);
          Button sendButton = (Button) this.findViewById(R.id.button2);
+         //final TextView myPath = (TextView) this.findViewById(R.id.targeturi);
          
          photoButton.setOnClickListener(new View.OnClickListener() {  
   
@@ -60,8 +63,8 @@ public class CaptureActivity extends Activity {
           // CALL THIS METHOD TO GET THE ACTUAL PATH
           File finalFile = new File(getRealPathFromURI(tempUri));
           currentPath = finalFile.toString();
-//    	  TextView myPath = (TextView) this.findViewById(R.id.targeturi);
-//          myPath.setText(finalFile.toString());
+    	  TextView myPath = (TextView) this.findViewById(R.id.targeturi);
+          myPath.setText(finalFile.toString());
       }
       super.onActivityResult(requestCode, resultCode, data);
       

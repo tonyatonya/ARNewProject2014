@@ -85,7 +85,9 @@
             android:label="@string/pageTitle_Register"
             >
         </activity>
-      <service android:name=".MyProcess"></service>
+      
     </application>
     
+    <service android:name=".MyProcess"></service>
+
 </manifest>
