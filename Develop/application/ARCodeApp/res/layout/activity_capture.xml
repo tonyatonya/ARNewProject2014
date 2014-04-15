@@ -5,20 +5,23 @@
     android:layout_height="match_parent"  
     tools:context=".activity_capture"
      >
-    <ImageView 
-        android:id="@+id/imageView1"  
-        android:layout_width="fill_parent"  
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"  
-        android:scaleType="fitXY"
-        android:layout_alignParentTop="true"  
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/button1"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitCenter"
         android:src="@drawable/ic_launcher" />
     
     <TextView
-    android:id="@+id/targeturi"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:text="image path" />
+        android:id="@+id/targeturi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:text="image path" />
 
     <Button
         android:id="@+id/button1"

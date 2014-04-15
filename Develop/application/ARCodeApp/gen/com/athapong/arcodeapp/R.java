@@ -48,8 +48,9 @@ public final class R {
         public static final int activity_editprofile=0x7f030001;
         public static final int activity_main=0x7f030002;
         public static final int activity_mylist=0x7f030003;
-        public static final int activity_register=0x7f030004;
-        public static final int activity_welcome=0x7f030005;
+        public static final int activity_myprocess=0x7f030004;
+        public static final int activity_register=0x7f030005;
+        public static final int activity_welcome=0x7f030006;
     }
     public static final class menu {
         public static final int main=0x7f080000;
@@ -57,28 +58,29 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
-        public static final int btnName_Cancle=0x7f060015;
-        public static final int btnName_Capture=0x7f06000e;
-        public static final int btnName_Logout=0x7f060010;
-        public static final int btnName_MyBizList=0x7f06000f;
-        public static final int btnName_Register=0x7f060013;
-        public static final int btnName_Save=0x7f060014;
-        public static final int btnName_TakePhoto=0x7f060016;
-        public static final int btnName_editProfile=0x7f06000d;
-        public static final int btnName_signUp=0x7f060012;
-        public static final int btnName_signin=0x7f060011;
-        public static final int inputName_Address=0x7f06000c;
-        public static final int inputName_Email=0x7f06000b;
-        public static final int inputName_Name=0x7f06000a;
-        public static final int inputName_Password=0x7f060009;
-        public static final int inputName_Username=0x7f060008;
+        public static final int btnName_Cancle=0x7f060016;
+        public static final int btnName_Capture=0x7f06000f;
+        public static final int btnName_Logout=0x7f060011;
+        public static final int btnName_MyBizList=0x7f060010;
+        public static final int btnName_Register=0x7f060014;
+        public static final int btnName_Save=0x7f060015;
+        public static final int btnName_TakePhoto=0x7f060017;
+        public static final int btnName_editProfile=0x7f06000e;
+        public static final int btnName_signUp=0x7f060013;
+        public static final int btnName_signin=0x7f060012;
+        public static final int inputName_Address=0x7f06000d;
+        public static final int inputName_Email=0x7f06000c;
+        public static final int inputName_Name=0x7f06000b;
+        public static final int inputName_Password=0x7f06000a;
+        public static final int inputName_Username=0x7f060009;
         public static final int pageTitle_BizInfo=0x7f060007;
         public static final int pageTitle_Capture=0x7f060004;
         public static final int pageTitle_EditProfile=0x7f060005;
         public static final int pageTitle_Login=0x7f060002;
+        public static final int pageTitle_MyProcess=0x7f060008;
         public static final int pageTitle_Register=0x7f060006;
         public static final int pageTitle_Welcome=0x7f060003;
-        public static final int tap=0x7f060017;
+        public static final int tap=0x7f060018;
     }
     public static final class style {
         /** 

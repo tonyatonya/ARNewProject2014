@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;  
 import android.database.Cursor;
 import android.graphics.Bitmap; 
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;  
 import android.provider.MediaStore;
@@ -22,6 +23,7 @@ public class CaptureActivity extends Activity {
      private static final int CAMERA_REQUEST = 1888;  
      ImageView imageView;
      String currentPath;
+     Bitmap photo;
      
      public void onCreate(Bundle savedInstanceState) {  
   
@@ -49,9 +51,39 @@ public class CaptureActivity extends Activity {
 		}); 
        }  
   
+     @Override
+     protected void onSaveInstanceState(Bundle savedInstanceState) {
+     super.onSaveInstanceState(savedInstanceState);
+	    	 //save Path
+	         String pathResult =  currentPath;
+	         savedInstanceState.putString("resultPath", pathResult);
+	         
+	         //save ImageView
+	         //Bitmap imgResult = imageView.getDrawingCache() ;
+	         Bitmap imgResult = BitmapFactory.decodeFile(currentPath);
+	         savedInstanceState.putParcelable("imgResult", imgResult);
+     }
+     
+     @Override
+     protected void onRestoreInstanceState(Bundle savedInstanceState) {
+     super.onRestoreInstanceState(savedInstanceState);
+	     
+	    	//restore path
+	      	String rePath = savedInstanceState.getString("resultPath");
+	      	TextView myPath = (TextView) this.findViewById(R.id.targeturi);
+	         myPath.setText(rePath);
+	
+	         //restoreimg
+	         Bitmap reImg = (Bitmap) savedInstanceState.getParcelable("imgResult");
+	         imageView = (ImageView) this.findViewById(R.id.imageView1); 
+	   	  	imageView.setImageBitmap(reImg);
+     	
+     }
+     
      protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
       if (requestCode == CAMERA_REQUEST) {  
     	  Bitmap photo = (Bitmap) data.getExtras().get("data");  
+    	  
     	  imageView.setImageBitmap(photo);
     	  
     	  // CALL THIS METHOD TO GET THE URI FROM THE BITMAP
@@ -60,8 +92,8 @@ public class CaptureActivity extends Activity {
           // CALL THIS METHOD TO GET THE ACTUAL PATH
           File finalFile = new File(getRealPathFromURI(tempUri));
           currentPath = finalFile.toString();
-//    	  TextView myPath = (TextView) this.findViewById(R.id.targeturi);
-//          myPath.setText(finalFile.toString());
+    	  TextView myPath = (TextView) this.findViewById(R.id.targeturi);
+          myPath.setText(finalFile.toString());
       }
       super.onActivityResult(requestCode, resultCode, data);
       
@@ -72,14 +104,12 @@ public class CaptureActivity extends Activity {
     	    String path = Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
     	    return Uri.parse(path);
     	}
-
-    	public String getRealPathFromURI(Uri uri) {
+     public String getRealPathFromURI(Uri uri) {
     	    Cursor cursor = getContentResolver().query(uri, null, null, null, null); 
     	    cursor.moveToFirst(); 
     	    int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA); 
     	    return cursor.getString(idx); 
     	}
-    	
      private void startProcess(){
     	 Intent myProcess = new Intent (this,MyProcess.class);
     	 if(currentPath == null){
@@ -89,6 +119,7 @@ public class CaptureActivity extends Activity {
     	 }else{
     		//passing information
         	 myProcess.putExtra("currentPath", currentPath); 
+        	startActivity(myProcess);
     	 }
      } 
 }  

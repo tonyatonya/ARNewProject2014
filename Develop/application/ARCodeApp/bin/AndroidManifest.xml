@@ -68,6 +68,8 @@
         </activity>
         <activity
             android:name=".CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
             android:label="@string/pageTitle_Capture" >
         </activity>
         <activity
@@ -85,7 +87,10 @@
             android:label="@string/pageTitle_Register"
             >
         </activity>
-      <service android:name=".MyProcess"></service>
+        <activity
+            android:name =".MyProcess"
+            android:label ="@string/pageTitle_MyProcess">
+        </activity>
     </application>
     
 </manifest>
