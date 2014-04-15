@@ -5651,3 +5651,31 @@ com.android.ddmlib.ShellCommandUnresponsiveException
 	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1047)
 	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1251)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2557-04-15 17:46:34.465
+!MESSAGE Failed to load properties file for project 'OpenCV Library - 2.4.8'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2557-04-15 17:46:34.469
+!MESSAGE Failed to load properties file for project 'OpenCV Library - 2.4.8'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2557-04-15 17:46:34.471
+!MESSAGE Failed to load properties file for project 'OpenCV Library - 2.4.8'
+
+!ENTRY org.eclipse.cdt.core 1 0 2557-04-15 18:02:04.259
+!MESSAGE Indexed 'OpenCV Sample - native-activity' (1 sources, 13 headers) in 2.06 sec: 50 declarations; 171 references; 26 unresolved inclusions; 0 syntax errors; 158 unresolved names (41.69%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2557-04-15 18:02:04.367
+!MESSAGE Indexed 'OpenCV Sample - face-detection' (1 sources, 14 headers) in 0.11 sec: 20 declarations; 74 references; 19 unresolved inclusions; 12 syntax errors; 45 unresolved names (32.37%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2557-04-15 18:02:04.447
+!MESSAGE Indexed 'OpenCV Tutorial 2 - Mixed Processing' (1 sources, 13 headers) in 0.06 sec: 0 declarations; 0 references; 18 unresolved inclusions; 2 syntax errors; 2 unresolved names (100.00%)
+!SESSION 2557-04-15 18:04:12.042 -----------------------------------------------
+eclipse.buildId=v22.3.0-887826
+java.version=1.7.0_40
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -keyring /Users/atthapongatthamasirigun/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.android.ide.eclipse.adt.package.product -keyring /Users/atthapongatthamasirigun/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2557-04-15 18:04:30.189
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences

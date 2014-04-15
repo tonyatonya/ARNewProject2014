@@ -24,7 +24,6 @@
 <fullyQualifiedTypeName name="com.athapong.arcodeapp.R.layout"/>
 <fullyQualifiedTypeName name="android.hardware.Camera.Parameters"/>
 <fullyQualifiedTypeName name="com.athapong.arcodeapp.CaptureActivity"/>
-<fullyQualifiedTypeName name="android.graphics.BitmapFactory"/>
 <fullyQualifiedTypeName name="android.content.pm.ActivityInfo"/>
 <fullyQualifiedTypeName name="android.graphics.Matrix"/>
 <fullyQualifiedTypeName name="android.widget.ImageView.ScaleType"/>
@@ -47,4 +46,6 @@
 <fullyQualifiedTypeName name="android.content.DialogInterface"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="android.app.Fragment"/>
+<fullyQualifiedTypeName name="android.graphics.BitmapFactory"/>
 </qualifiedTypeNameHistroy>
