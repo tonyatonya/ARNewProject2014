@@ -53,31 +53,32 @@ containing a value of this type.
         public static int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static int SignIn=0x7f04000a;
-        public static int SignUp=0x7f04000b;
-        public static int action_settings=0x7f040011;
+        public static int SignIn=0x7f04000b;
+        public static int SignUp=0x7f04000c;
+        public static int action_settings=0x7f040012;
         public static int any=0x7f040000;
         public static int back=0x7f040001;
-        public static int bizList=0x7f04000c;
+        public static int bizList=0x7f04000d;
         public static int button1=0x7f040004;
         public static int button2=0x7f040006;
-        public static int capture=0x7f04000d;
-        public static int editText1=0x7f040008;
-        public static int editText2=0x7f040009;
-        public static int editprofile=0x7f04000e;
+        public static int capture=0x7f04000e;
+        public static int editText1=0x7f040009;
+        public static int editText2=0x7f04000a;
+        public static int editprofile=0x7f04000f;
         public static int front=0x7f040002;
+        public static int imagePath=0x7f040007;
         public static int imageView1=0x7f040003;
-        public static int logout=0x7f040010;
-        public static int mylist=0x7f04000f;
+        public static int logout=0x7f040011;
+        public static int mylist=0x7f040010;
         public static int targeturi=0x7f040005;
-        public static int textView1=0x7f040007;
+        public static int textView1=0x7f040008;
     }
     public static final class layout {
         public static int activity_capture=0x7f030000;
         public static int activity_editprofile=0x7f030001;
-        public static int activity_main=0x7f030002;
-        public static int activity_mylist=0x7f030003;
-        public static int activity_myprocess=0x7f030004;
+        public static int activity_imageprocess=0x7f030002;
+        public static int activity_main=0x7f030003;
+        public static int activity_mylist=0x7f030004;
         public static int activity_register=0x7f030005;
         public static int activity_welcome=0x7f030006;
     }

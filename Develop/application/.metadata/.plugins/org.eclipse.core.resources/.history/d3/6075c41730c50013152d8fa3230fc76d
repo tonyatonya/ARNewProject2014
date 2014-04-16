@@ -1,0 +1,19 @@
+package com.athapong.arcodeapp;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class ImageProcess extends Activity {
+	String getPath;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView()
+	}
+	
+	
+	
+
+}

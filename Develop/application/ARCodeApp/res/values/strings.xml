@@ -8,7 +8,7 @@
 	<string name="pageTitle_EditProfile">Edit Profile</string>
 	<string name="pageTitle_Register">Register</string>
 	<string name="pageTitle_BizInfo">Business List</string>
-	<string name="pageTitle_MyProcess">Please Wait</string>
+	<string name="pageTitle_MyProcess">MyProcess</string>
 	<string name="inputName_Username">Please Fill User Name</string>
 	<string name="inputName_Password">Please Fill Password</string>
 	<string name="inputName_Name">Please Fill Name</string>

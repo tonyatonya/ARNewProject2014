@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;  
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images;
+import android.provider.MediaStore.MediaColumns;
 import android.view.View;  
 import android.widget.Button;  
 import android.widget.ImageView; 
@@ -25,7 +26,8 @@ public class CaptureActivity extends Activity {
      String currentPath;
      Bitmap photo;
      
-     public void onCreate(Bundle savedInstanceState) {  
+     @Override
+	public void onCreate(Bundle savedInstanceState) {  
   
          super.onCreate(savedInstanceState);  
          setContentView(R.layout.activity_capture);  
@@ -76,11 +78,12 @@ public class CaptureActivity extends Activity {
 	         //restoreimg
 	         Bitmap reImg = (Bitmap) savedInstanceState.getParcelable("imgResult");
 	         imageView = (ImageView) this.findViewById(R.id.imageView1); 
-	   	  	imageView.setImageBitmap(reImg);
+	   	  	 imageView.setImageBitmap(reImg);
      	
      }
     
-     protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
+     @Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
       if (requestCode == CAMERA_REQUEST) {  
     	  Bitmap photo = (Bitmap) data.getExtras().get("data");  
     	  
@@ -107,18 +110,19 @@ public class CaptureActivity extends Activity {
      public String getRealPathFromURI(Uri uri) {
     	    Cursor cursor = getContentResolver().query(uri, null, null, null, null); 
     	    cursor.moveToFirst(); 
-    	    int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA); 
+    	    int idx = cursor.getColumnIndex(MediaColumns.DATA); 
     	    return cursor.getString(idx); 
     	}
      private void startProcess(){
-    	 Intent myProcess = new Intent (this,MyProcess.class);
+    	
     	 if(currentPath == null){
     		//alert
     		 Toast toast = Toast.makeText ( this, "File Not Found Please Take a Photo", Toast.LENGTH_LONG );
     		 toast.show();
     	 }else{
     		//passing information
-        	 myProcess.putExtra("currentPath", currentPath); 
+    		Intent myProcess = new Intent (CaptureActivity.this,ImageProcess.class);
+        	myProcess.putExtra("currentPath", currentPath); 
         	startActivity(myProcess);
     	 }
      } 

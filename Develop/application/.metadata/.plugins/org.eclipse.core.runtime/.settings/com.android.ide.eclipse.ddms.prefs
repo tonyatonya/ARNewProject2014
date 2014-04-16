@@ -8,3 +8,4 @@ logcat.view.colsize.TID=46
 logcat.view.colsize.Tag=193
 logcat.view.colsize.Text=636
 logcat.view.colsize.Time=140
+logcat.view.filters.list=name\: 'ARCodeApp', tag\: '', text\: '', pid\: '', app\: 'ARCodeApp', level\: 'error', 
