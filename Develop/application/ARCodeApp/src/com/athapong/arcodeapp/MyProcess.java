@@ -77,13 +77,7 @@ public class MyProcess extends Activity {
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);  
         setContentView(R.layout.activity_myprocess);
-        
-        	// Conect to Database 
-     		final arDBClass myDb = new arDBClass(this);
-     		myDb.getWritableDatabase();
-     		if(myDb != null){
-     			Log.d("DB Conect","Database Connected.");
-     		}
+
         
         // get Data from CaptureActivity
         getPath = getIntent().getStringExtra("currentPath");

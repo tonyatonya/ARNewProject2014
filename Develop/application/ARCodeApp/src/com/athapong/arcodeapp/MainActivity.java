@@ -19,23 +19,23 @@ import com.athapong.arcodeapp.DataBaseHelper;
 import com.athapong.arcodeapp.DataBaseHelper.*;
 
 public class MainActivity extends Activity {
-	SQLiteDatabase db;
+	SQLiteDatabase myDataBase;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		//First Run
+		
 		DataBaseHelper myDbHelper = new DataBaseHelper(this);
         myDbHelper = new DataBaseHelper(this);
 	
         try {
         	Log.d("DB Create","Database Now Created.");
         	myDbHelper.createDataBase();
- 
+        	Log.d("DB","Database Created");
         } catch (IOException ioe) {
  
         	throw new Error("Unable to create database");
- 
         }
  
         try {
@@ -49,16 +49,14 @@ public class MainActivity extends Activity {
         	throw sqle;
  
         }
-		
-		// Conect to Database 
         
+		// Conect to Database 
  		final DataBaseHelper myDb = new DataBaseHelper(this);
  		myDb.getWritableDatabase();
  		if(myDb != null){
  			Log.d("DB Conect","Database Connected.");
  		}
  		
-		
 		
 		Button btnSignin = (Button) findViewById(R.id.SignIn);
 		btnSignin.setOnClickListener(new View.OnClickListener() {
@@ -76,9 +74,9 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				//Intent intent = new Intent(MainActivity.this,RegisterActivity.class);
-				//startActivity(intent);
-				
+				Intent intent = new Intent(MainActivity.this,RegisterActivity.class);
+				startActivity(intent);
+				/*
 				//test Query
 				Log.d("check btn","Clicked");
 				
@@ -88,15 +86,15 @@ public class MainActivity extends Activity {
 					Log.e("check Queryed","No Query");
 				}else{
 					
-					//for(busData mem : allLogo){
+					for(busData mem : busAllList){
 					Log.e("check Queryed","Start Query");
-					for(int i=0;i<=busAllList.size();i++){
-						//Toast.makeText(MainActivity.this,"Bus logopath = "+ mem.gLogo() ,Toast.LENGTH_LONG).show();
+					
+						Toast.makeText(MainActivity.this,"Bus logopath = "+ mem.gLogo() ,Toast.LENGTH_LONG).show();
 						Log.e("check Queryed","Get Query");
 					}
 				}
 				//end Test Query
-				
+				*/
 			}
 		});
 	}
