@@ -1,7 +1,0 @@
-package com.athapong.arcodeapp;
-
-import android.app.Activity;
-
-public class ImageProcess extends Activity {
-
-}

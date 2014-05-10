@@ -2,6 +2,9 @@ package com.athapong.arcodeapp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.content.Intent;
+import android.view.View;
+import android.view.View.OnClickListener;
 
 public class EditprofileActivity extends Activity {
 	@Override

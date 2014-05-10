@@ -12,7 +12,6 @@ import android.net.Uri;
 import android.os.Bundle;  
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images;
-import android.provider.MediaStore.MediaColumns;
 import android.view.View;  
 import android.widget.Button;  
 import android.widget.ImageView; 
@@ -24,10 +23,9 @@ public class CaptureActivity extends Activity {
      private static final int CAMERA_REQUEST = 1888;  
      ImageView imageView;
      String currentPath;
-     Bitmap photo;
+     Bitmap photo,imgResult;
      
-     @Override
-	public void onCreate(Bundle savedInstanceState) {  
+     public void onCreate(Bundle savedInstanceState) {  
   
          super.onCreate(savedInstanceState);  
          setContentView(R.layout.activity_capture);  
@@ -62,28 +60,35 @@ public class CaptureActivity extends Activity {
 	         
 	         //save ImageView
 	         //Bitmap imgResult = imageView.getDrawingCache() ;
-	         Bitmap imgResult = BitmapFactory.decodeFile(currentPath);
+	         imgResult = BitmapFactory.decodeFile(currentPath);
 	         savedInstanceState.putParcelable("imgResult", imgResult);
+	         
+	         imageView = (ImageView) this.findViewById(R.id.imageView1); 
+	         imageView.setImageBitmap(imgResult);
      }
      
      @Override
      protected void onRestoreInstanceState(Bundle savedInstanceState) {
      super.onRestoreInstanceState(savedInstanceState);
-	     
-	    	//restore path
-	      	String rePath = savedInstanceState.getString("resultPath");
-	      	TextView myPath = (TextView) this.findViewById(R.id.targeturi);
-	         myPath.setText(rePath);
+     		//restore path
+	      	//String rePath = savedInstanceState.getString("resultPath");
+	      	//TextView myPath = (TextView) this.findViewById(R.id.targeturi);
+	        //myPath.setText(rePath);
+     		currentPath = savedInstanceState.getString("resultPath");
+     		TextView myPath = (TextView) this.findViewById(R.id.targeturi);
+     		myPath.setText(currentPath);
 	
-	         //restoreimg
-	         Bitmap reImg = (Bitmap) savedInstanceState.getParcelable("imgResult");
-	         imageView = (ImageView) this.findViewById(R.id.imageView1); 
-	   	  	 imageView.setImageBitmap(reImg);
+	        //restoreimg
+//	        Bitmap reImg = (Bitmap) savedInstanceState.getParcelable("imgResult");
+//	        imageView = (ImageView) this.findViewById(R.id.imageView1); 
+//	        imageView.setImageBitmap(reImg);
+     		imgResult = (Bitmap) savedInstanceState.getParcelable("imgResult");
+	        imageView = (ImageView) this.findViewById(R.id.imageView1); 
+	        imageView.setImageBitmap(imgResult);
      	
      }
     
-     @Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
+     protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
       if (requestCode == CAMERA_REQUEST) {  
     	  Bitmap photo = (Bitmap) data.getExtras().get("data");  
     	  
@@ -110,20 +115,19 @@ public class CaptureActivity extends Activity {
      public String getRealPathFromURI(Uri uri) {
     	    Cursor cursor = getContentResolver().query(uri, null, null, null, null); 
     	    cursor.moveToFirst(); 
-    	    int idx = cursor.getColumnIndex(MediaColumns.DATA); 
+    	    int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA); 
     	    return cursor.getString(idx); 
     	}
      private void startProcess(){
-    	
+    	 Intent myProcess = new Intent (this,MyProcess.class);
     	 if(currentPath == null){
     		//alert
     		 Toast toast = Toast.makeText ( this, "File Not Found Please Take a Photo", Toast.LENGTH_LONG );
     		 toast.show();
     	 }else{
     		//passing information
-    		Intent myProcess = new Intent (CaptureActivity.this,ImageProcess.class);
-        	myProcess.putExtra("currentPath", currentPath); 
-        	startActivity(myProcess);
+        	 myProcess.putExtra("currentPath", currentPath); 
+        	 startActivity(myProcess);
     	 }
      } 
 }  

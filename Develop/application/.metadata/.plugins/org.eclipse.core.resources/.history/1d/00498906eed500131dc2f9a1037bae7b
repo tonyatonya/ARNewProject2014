@@ -1,0 +1,84 @@
+package com.athapong.arcodeapp;
+
+import java.util.List;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+public class arDBClass extends SQLiteOpenHelper{
+	
+		//database version
+		private static final int DATABASE_VERSION = 1;
+		
+		//database name
+		private static final String DATABASE_NAME = "ardb";
+		
+		// Table Name
+		private static final String TABLE_MEMBER = "members";
+		private static final String TABLE_BUS = "businesslist";
+	
+		
+		public arDBClass(Context context) {
+			super(context, DATABASE_NAME, null, DATABASE_VERSION);
+			// TODO Auto-generated constructor stub
+		}
+
+
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		// TODO Auto-generated method stub
+		
+		String CREATE_MEMBER_TABLE = "CREATE TABLE member (" + "id INTEGER PRIMARY KEY," + " name TEXT(100)," + " email TEXT(100))";
+		String CREATE_BUS_TABLE = "CREATE TABLE businesslist (" + "id INTEGER PRIMARY KEY," + "bus_name CHAR," + "bus_url CHAR," + "bus_logo CHAR )";
+		db.execSQL(CREATE_MEMBER_TABLE);
+		db.execSQL(CREATE_BUS_TABLE);
+		
+		Log.d("CREATE TABLE","Create Table Successfully.");
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		// TODO Auto-generated method stub
+		db.execSQL("DROP TABLE IF EXISTS");
+		this.onCreate(db);
+	}
+	
+	//select All bus data
+	public class allBus {
+		
+	}
+	
+	
+	public List<allBus> SelectAllbus(){
+		try{
+			String busData[] = null;
+			SQLiteDatabase db;
+			db = this.getReadableDatabase(); // Read Data
+			String strSQL = "SELECT  * FROM " + TABLE_BUS;
+			Cursor cursor = db.rawQuery(strSQL, null);
+			if(cursor != null){
+				if(cursor.moveToFirst()){
+					do{
+						
+					}while(cursor.moveToNext());
+				}
+			}
+			
+			cursor.close();
+			db.close();
+			return MemberList;
+			
+			
+		}catch(Exception e){
+			return null;
+		}
+		return null;
+		
+	}
+	
+	
+}
