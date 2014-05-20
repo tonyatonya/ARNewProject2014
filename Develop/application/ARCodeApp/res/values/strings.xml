@@ -22,7 +22,11 @@
 	<string name="btnName_signUp">Sign Up</string>
 	<string name="btnName_Register">Register</string>
 	<string name="btnName_Save">Save</string>
-	<string name="btnName_Cancle">Cancle</string>
+	<string name="btnName_Cancel">Cancel</string>
 	<string name="btnName_TakePhoto">Capture</string>
 	<string name="tap">Tap the image to open the camera!!</string>
+	<string name="lable_username">Username</string>
+	<string name="lable_password">Password</string>
+	<string name="lable_name">Name</string>
+	<string name="lable_email">Email</string>
 </resources>

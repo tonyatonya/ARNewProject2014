@@ -38,6 +38,7 @@ containing a value of this type.
     }
     public static final class color {
         public static final int background=0x7f050000;
+        public static final int inputText=0x7f050001;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -53,26 +54,36 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int SignIn=0x7f04000a;
-        public static final int SignUp=0x7f04000b;
-        public static final int action_settings=0x7f040013;
+        public static final int Profile_editText1=0x7f040007;
+        public static final int Profile_editText2=0x7f040008;
+        public static final int Profile_editText3=0x7f040009;
+        public static final int Profile_editText4=0x7f04000a;
+        public static final int SignIn=0x7f040010;
+        public static final int SignUp=0x7f040011;
+        public static final int action_settings=0x7f04001d;
         public static final int any=0x7f040000;
         public static final int back=0x7f040001;
-        public static final int bizList=0x7f04000c;
         public static final int button1=0x7f040004;
         public static final int button2=0x7f040006;
-        public static final int capture=0x7f04000d;
-        public static final int editText1=0x7f040008;
-        public static final int editText2=0x7f040009;
-        public static final int editprofile=0x7f040010;
+        public static final int cancelbtn=0x7f04000c;
+        public static final int capture=0x7f040013;
+        public static final int editText1=0x7f04000e;
+        public static final int editText2=0x7f04000f;
+        public static final int editprofile=0x7f040017;
         public static final int front=0x7f040002;
         public static final int imageView1=0x7f040003;
-        public static final int logout=0x7f040012;
-        public static final int myIV=0x7f04000e;
-        public static final int myTV=0x7f04000f;
-        public static final int mylist=0x7f040011;
+        public static final int label=0x7f04001b;
+        public static final int list=0x7f040012;
+        public static final int logoImg=0x7f04001a;
+        public static final int logout=0x7f040019;
+        public static final int myIV=0x7f040014;
+        public static final int myTV=0x7f040015;
+        public static final int mylist=0x7f040018;
+        public static final int regbtn=0x7f040016;
+        public static final int savebtn=0x7f04000b;
         public static final int targeturi=0x7f040005;
-        public static final int textView1=0x7f040007;
+        public static final int textView1=0x7f04000d;
+        public static final int value=0x7f04001c;
     }
     public static final class layout {
         public static final int activity_capture=0x7f030000;
@@ -82,6 +93,7 @@ containing a value of this type.
         public static final int activity_myprocess=0x7f030004;
         public static final int activity_register=0x7f030005;
         public static final int activity_welcome=0x7f030006;
+        public static final int row=0x7f030007;
     }
     public static final class menu {
         public static final int main=0x7f090000;
@@ -89,7 +101,7 @@ containing a value of this type.
     public static final class string {
         public static final int action_settings=0x7f070001;
         public static final int app_name=0x7f070000;
-        public static final int btnName_Cancle=0x7f070016;
+        public static final int btnName_Cancel=0x7f070016;
         public static final int btnName_Capture=0x7f07000f;
         public static final int btnName_Logout=0x7f070011;
         public static final int btnName_MyBizList=0x7f070010;
@@ -104,6 +116,10 @@ containing a value of this type.
         public static final int inputName_Name=0x7f07000b;
         public static final int inputName_Password=0x7f07000a;
         public static final int inputName_Username=0x7f070009;
+        public static final int lable_email=0x7f07001c;
+        public static final int lable_name=0x7f07001b;
+        public static final int lable_password=0x7f07001a;
+        public static final int lable_username=0x7f070019;
         public static final int pageTitle_BizInfo=0x7f070007;
         public static final int pageTitle_Capture=0x7f070004;
         public static final int pageTitle_EditProfile=0x7f070005;
@@ -140,6 +156,9 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f080001;
+        public static final int setLabelSize=0x7f080004;
+        public static final int setPadding=0x7f080002;
+        public static final int setminHeight=0x7f080003;
     }
     public static final class styleable {
         /** Attributes that can be used with a CameraBridgeViewBase.

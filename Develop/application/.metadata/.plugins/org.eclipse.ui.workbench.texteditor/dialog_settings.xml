@@ -13,13 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="include $(CLEAR_VARS)" key="selection"/>
+		<item value="myDB" key="selection"/>
 		<list key="findhistory">
+			<item value="myDatabase"/>
+			<item value="point"/>
 			<item value="include $(CLEAR_VARS)"/>
 			<item value="include ../../sdk/native/jni/OpenCV.mk"/>
 			<item value="OPENCV_CAMERA_MODULES"/>
 		</list>
 		<list key="replacehistory">
+			<item value="myDB"/>
 		</list>
 	</section>
 </section>

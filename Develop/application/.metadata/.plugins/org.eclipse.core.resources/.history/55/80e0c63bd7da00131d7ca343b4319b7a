@@ -1,0 +1,210 @@
+package com.athapong.arcodeapp;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import android.app.Activity;  
+import android.graphics.Bitmap;
+import android.os.Bundle; 
+import android.util.Log;
+import android.widget.ImageView;
+import android.widget.Toast;
+import org.opencv.android.BaseLoaderCallback;
+import org.opencv.android.LoaderCallbackInterface;
+import org.opencv.android.OpenCVLoader;
+import org.opencv.android.Utils;
+import org.opencv.core.Core;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
+import org.opencv.core.Size;
+import org.opencv.highgui.Highgui;
+import org.opencv.imgproc.Imgproc;
+
+import org.opencv.core.Point;
+import org.opencv.core.Core.MinMaxLocResult;
+
+import android.database.sqlite.SQLiteDatabase;
+import com.athapong.arcodeapp.DataBaseHelper;
+import com.athapong.arcodeapp.DataBaseHelper.busData;
+
+
+public class MyProcess extends Activity {
+		
+		private SQLiteDatabase db;
+		final DataBaseHelper myDb = new DataBaseHelper(this);
+		final String TAG ="Image Processing";
+		String getPath,logoId;
+		//String TAG = null;
+		Mat firstImage,SecondImage,image,gImg,bImg,tImg,matchResult,inputMat = null;
+		ImageView myIV;
+		Bitmap tempImg;
+		
+		ArrayList<String> resultMatchId=new ArrayList<String>();
+		 private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
+
+		        @Override
+		        public void onManagerConnected(int status) {
+		            switch (status) {
+		                case LoaderCallbackInterface.SUCCESS:
+		                {
+		                    Log.i(TAG, "OpenCV loaded successfully");
+		                  //get Image 1
+		                   // firstImage = getMyMat(getPath);
+		                    firstImage = startProcess(getPath);
+		                    
+		                    
+                    		
+                    		// Start Query Image For Compare
+		                    List<busData> allLogoList = myDb.selectAllLogo();
+		        			if(firstImage != null && allLogoList != null){
+		        				Log.e("check Queryed","Start Query");
+		        				for(busData mem : allLogoList){
+		        						//query image list
+		        						Log.e("check Queryed","Get Query");
+		        						//SecondImage = getMyMat(mem.gLogo());
+		        						SecondImage = startProcess(mem.gLogo());
+		        						//start Template Match
+		        						logoId = matchId(mem.gId(),SecondImage,firstImage,Imgproc.TM_CCOEFF);
+		        						
+		        						 // convert mat  for Result to Show on imageView
+		    		        			tempImg = Bitmap.createBitmap(SecondImage.cols(), SecondImage.rows(), Bitmap.Config.ARGB_8888);
+		    		        			Utils.matToBitmap(SecondImage, tempImg);
+		    		        			myIV.setImageBitmap(tempImg);
+		        					}
+		        			}
+		        			
+		        			
+		        			
+		        			
+		                } break;
+		                default:
+		                {
+		                    super.onManagerConnected(status);
+		                } break;
+		            }
+		            
+		        }
+		    };
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);  
+        setContentView(R.layout.activity_myprocess);
+        myIV = (ImageView) this.findViewById(R.id.myIV);
+        
+        // Conect to Database 
+      		myDb.getWritableDatabase();
+	      	if(myDb != null){
+	      		Log.d("DB Conect","Database Connected.");
+	      	}
+	     // get Data from CaptureActivity
+	        getPath = getIntent().getStringExtra("currentPath");
+	        
+			
+	}
+	
+	@Override
+    public void onResume(){
+        super.onResume();
+        OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_8, this, mLoaderCallback);
+    }
+	
+	// Image Process 
+	public Mat startProcess(String inputPath){
+		//load image;
+		image = Highgui.imread(inputPath);
+		
+		// Resize image
+		//Size sz = new Size(400,400);
+		//Imgproc.resize( image, image, sz ); 
+		
+		//convert to Gray
+		Imgproc.cvtColor(image, image, Imgproc.COLOR_RGB2GRAY);
+		
+		//Add Blur
+		org.opencv.core.Size s = new Size(5,5);
+		Imgproc.GaussianBlur(image,image,s,0);
+		
+		//AdaptiveThreshold -> classify as either black or white
+		//Imgproc.adaptiveThreshold(image, image, 255, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 5, 2);
+		//Imgproc.adaptiveThreshold(image, image, 255, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 25, 2);
+		
+		//Invert the image -> so most of the image is black
+		//Core.bitwise_not(image, image);
+		
+		
+		Log.i(TAG, "Complete Image Process");
+		return image;
+	}
+
+
+	// Template Matching
+	/*
+	public ArrayList<String> matchId(String logoId,Mat masterImage,Mat templImage,int matchMethod){
+		
+		//Create the result matrix
+		int result_cols = masterImage.cols() - templImage.cols();
+		int result_rows = masterImage.rows() - templImage.rows();
+		Mat result = new Mat(result_rows, result_cols, CvType.CV_32FC1);
+		
+		// Do the Matching and Normalize
+		 Imgproc.matchTemplate(masterImage, templImage, result,matchMethod);
+	      Core.normalize(result, result, 0, 1, Core.NORM_MINMAX, -1, new Mat());
+	      
+	      //Localizing the best match with minMaxLoc
+	      MinMaxLocResult mmr = Core.minMaxLoc(result);
+	      Point matchLoc;
+		      if (matchMethod == Imgproc.TM_SQDIFF || matchMethod == Imgproc.TM_SQDIFF_NORMED){
+	              matchLoc = mmr.minLoc;
+	          } else {
+	              matchLoc = mmr.maxLoc;
+	              Log.i(TAG+"Matching", "Get Match");
+	          }
+		      
+		   ArrayList<String> getMatchId=new ArrayList<String>();
+		   if(mmr != null){
+			   Iterator <String> list = getMatchId.iterator();
+			   while(list.hasNext()){
+				   getMatchId.add(list.next());
+		        }
+		   }else{
+			   Log.i(TAG+"Matching", "Not Match");
+		   }
+		 
+		
+		return getMatchId;
+	}
+	*/
+	
+	public String matchId(String logoId,Mat masterImage,Mat templImage,int matchMethod){
+		String getLogoId = null;
+		//Create the result matrix
+		int result_cols = masterImage.cols() - templImage.cols();
+		int result_rows = masterImage.rows() - templImage.rows();
+		Mat result = new Mat(result_rows, result_cols, CvType.CV_32FC1);
+		//Log.d("Result","Result before Match = "+result.toString());
+		// Do the Matching and Normalize
+		Imgproc.matchTemplate(masterImage, templImage, result,matchMethod);
+	    Core.normalize(result, result, 0, 255, Core.NORM_MINMAX, -1, new Mat());
+		//Core.normalize(result, result, 0, 255, Core.NORM_MINMAX,CvType.CV_8U);
+	  
+	  //Localizing the best match with minMaxLoc
+	  
+      MinMaxLocResult mmr = Core.minMaxLoc(result);
+      Point matchLoc;
+      Log.d("mmr","mmr ="+ mmr.toString());
+//      if (matchMethod == Imgproc.TM_SQDIFF || matchMethod == Imgproc.TM_SQDIFF_NORMED){
+//      //if (matchMethod == Imgproc.TM_CCOEFF){
+//          matchLoc = mmr.minLoc;
+//          Log.d("matchLoc = mmr.minLoc;",matchLoc.toString());
+//      } else {
+//          matchLoc = mmr.maxLoc;
+//          Log.d("matchLoc = mmr.maxLoc;",matchLoc.toString());
+//      }
+//      	
+//      Log.d("mmr","id = " +logoId+ "mmr.minLoc" +(mmr.minLoc).toString() +"mmr.maxLoc = "+(mmr.maxLoc).toString());
+      
+      	
+		return getLogoId;
+	}
+	
+}
