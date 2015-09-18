@@ -54,7 +54,7 @@ public class MyProcess extends Activity {
 		                {
 		                    Log.i(TAG, "OpenCV loaded successfully");
 		                  //get Image 1
-		                   // firstImage = getMyMat(getPath);
+		                   
 		                    firstImage = startProcess(getPath);
 		              	
                     		// Start Query Image For Compare
@@ -66,10 +66,7 @@ public class MyProcess extends Activity {
 		        						Log.e("check Queryed","Get Query");
 		        						SecondImage = startProcess(mem.gLogo());
 		        						
-		        						// convert mat  for Result to Show on imageView
-//		        						tempImg = Bitmap.createBitmap(result.cols(), result.rows(), Bitmap.Config.ARGB_8888);
-//		        						Utils.matToBitmap(result, tempImg);
-//		        						myIV.setImageBitmap(tempImg);
+
 		        						
 		        						//start Template Match
 		        						logoId = matchId(mem.gId(),SecondImage,firstImage,Imgproc.TM_CCOEFF);
@@ -154,11 +151,9 @@ public class MyProcess extends Activity {
 		Imgproc.GaussianBlur(image,image,s,0);
 		
 		//AdaptiveThreshold -> classify as either black or white
-		//Imgproc.adaptiveThreshold(image, image, 255, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 5, 2);
 		Imgproc.adaptiveThreshold(image, image, 255, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 25, 2);
 		
-		//Invert the image -> so most of the image is black
-		//Core.bitwise_not(image, image);
+
 		
 		
 		Log.i(TAG, "Complete Image Process");
